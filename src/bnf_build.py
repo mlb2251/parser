@@ -19,7 +19,7 @@ class BNFBuilder(Builder):
         self.seq_fns.
 
     def build(b,node):
-        # All Atoms return Python Expr nodes which yield whatever value theyll give when using Asn with them. Some have side effects of defining functions which are done through build() in place. Most don't actually call build() since they just construct expression nodes and return them. Seq with >1 item and Asn can't be assignment targets. Seq defines a function then returns the function name as a Var node which can then be called.
+        # All Atoms return Python Expr nodes which yield whatever value theyll give when using Asn with them. Some have side effects of defining functions which are done through build() in place. Most don't actually call build() since they just construct expression nodes and return them. Seq with >1 item and Asn can't be assignment targets. Seq defines a function then returns the function name as a Var node which can then be called. Backticks just do text->Python but $() allows for insertion of the stringified version of a value. This defaults to just the str() of the object.
         if isinstance(node,Atom):
             if isinstance(node,BnfCall):
                 return `p.$(node.name)($(node.args))`
