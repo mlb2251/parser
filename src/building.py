@@ -2,11 +2,11 @@
 # b.desugar(expr) works for AST nodes. non python nodes have their translate() methods called, which may do some desugaring of its own! eg forward declarations
 
 
-rapid tree traversal to find all instances of a node for example, etc
-useful for forward definitions of values, all of which can be stored in some master object __x.whatever so they dont conflict with namespace.
+#rapid tree traversal to find all instances of a node for example, etc
+#useful for forward definitions of values, all of which can be stored in some master object __x.whatever so they dont conflict with namespace.
 
 
-b.gen(fparseablestring)
+#b.gen(fparseablestring)
 
 # you write a `desugar` for each Expr or Stmt, rather than a monolithic match stmt. There's total sugar similar to AST in appearance that desugars to this setup.
 # then b.stmt() automatically tries all Stmts and b.expr automatically tries all exprs
@@ -17,8 +17,8 @@ b.gen(fparseablestring)
 #`whatever` becomes b.gen(ff'whatever') which is basically p.parse(f'whatever')
 # desugar is the same as b.desugar()
 
-b.desugar(pynode) will desugar a python node
-b.desugar(customnode) will desugar a pynode and possibly some extra pynodes
+#b.desugar(pynode) will desugar a python node
+#b.desugar(customnode) will desugar a pynode and possibly some extra pynodes
 # there is no b.translate because it would have side effects by nature eg forward declarations
 
 # PythonParser(Parser).parse(): test.py -> pyAST
@@ -40,8 +40,8 @@ b.desugar(customnode) will desugar a pynode and possibly some extra pynodes
 
 
 
-with b.anon_def() as fn:
-    pass
+#with b.anon_def() as fn:
+#    pass
 
 
 
